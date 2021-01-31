@@ -6,12 +6,14 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.transaction.Transactional;
 
+import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Controller;
 
 import model.account.Account;
 import services.db.api.IAccountApi;
 
 @Controller
+@Profile("HIBERNATE")
 @Transactional
 public class DBAccountApiImpl implements IAccountApi{
 	
