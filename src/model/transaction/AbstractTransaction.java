@@ -7,7 +7,6 @@ import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.DiscriminatorColumn;
 import javax.persistence.DiscriminatorType;
-import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
@@ -16,7 +15,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.MappedSuperclass;
 import javax.persistence.Table;
 
-import model.account.Account;
+import model.balance.Balance;
 
 @Table(name = "IOA_TRANSACTION")
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
@@ -40,8 +39,8 @@ public abstract class AbstractTransaction implements Serializable {
 	private String transactionType;
 	
 	@ManyToOne
-	@JoinColumn(name = "ACCOUNT_FK", nullable = false)
-	private Account account;
+	@JoinColumn(name = "BALANCE_FK", nullable = false)
+	private Balance balance;
 
 	public BigDecimal getAmount() {
 		return amount;

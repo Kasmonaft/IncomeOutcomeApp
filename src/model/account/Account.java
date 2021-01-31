@@ -26,11 +26,6 @@ public class Account implements Serializable {
 	@Column(name="ACCOUNT_NAME")
 	private String accountName;
 	
-	
-	
-	@OneToMany(mappedBy = "account")
-	private Set<Transaction> transactions = new HashSet<>();
-	
 	@OneToMany(mappedBy = "account")
 	private Set<Balance> balance = new HashSet<>();
 
@@ -40,14 +35,6 @@ public class Account implements Serializable {
 
 	public void setAccountName(String accountName) {
 		this.accountName = accountName;
-	}
-
-	public Set<Transaction> getTransactions() {
-		return transactions;
-	}
-
-	public void setTransactions(Set<Transaction> transactions) {
-		this.transactions = transactions;
 	}
 
 	public Set<Balance> getBalance() {
