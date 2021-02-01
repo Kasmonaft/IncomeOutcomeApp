@@ -12,6 +12,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import org.hibernate.annotations.NaturalId;
+
 import model.account.Account;
 import model.transaction.Transaction;
 
@@ -28,6 +30,11 @@ public class Balance implements Serializable {
 	@Column(name = "AMOUNT")
 	private BigDecimal amount;
 	
+	@NaturalId
+	@Column(name = "BALANCE_NAME")
+	private String balanceName;
+	
+	@NaturalId
 	@JoinColumn(table = "IOA_ACCOUNT", name = "ACCOUNT_FK", referencedColumnName = "ID")
 	private Account account;
 	
@@ -60,5 +67,13 @@ public class Balance implements Serializable {
 
 	public void setTransactions(Set<Transaction> transactions) {
 		this.transactions = transactions;
+	}
+
+	public String getBalanceName() {
+		return balanceName;
+	}
+
+	public void setBalanceName(String balanceName) {
+		this.balanceName = balanceName;
 	}
 }

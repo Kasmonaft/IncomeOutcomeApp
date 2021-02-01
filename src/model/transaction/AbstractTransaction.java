@@ -35,6 +35,9 @@ public abstract class AbstractTransaction implements Serializable {
 	@Column(name = "TRANSACTION_DATE")
 	private Date date;
 	
+	@Column(name = "TRANSACTION_COMMENT")
+	private String transactionComment;
+
 	@Column(name = "TRANSACTION_TYPE")
 	private String transactionType;
 	
@@ -58,6 +61,18 @@ public abstract class AbstractTransaction implements Serializable {
 		this.date = date;
 	}
 
+	public String getTransactionComment() {
+		return transactionComment;
+	}
+
+	public void setTransactionComment(String transactionType) {
+		this.transactionComment = transactionType;
+	}
+
+	public Long getId() {
+		return id;
+	}
+
 	public String getTransactionType() {
 		return transactionType;
 	}
@@ -66,8 +81,12 @@ public abstract class AbstractTransaction implements Serializable {
 		this.transactionType = transactionType;
 	}
 
-	public Long getId() {
-		return id;
+	public Balance getBalance() {
+		return balance;
+	}
+
+	public void setBalance(Balance balance) {
+		this.balance = balance;
 	}
 
 }
