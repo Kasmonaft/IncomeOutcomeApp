@@ -12,7 +12,7 @@ import org.springframework.stereotype.Controller;
 import model.account.Account;
 import services.entity.api.IAccountApi;
 
-@Controller
+@Controller("accountApiImpl")
 @Profile("HIBERNATE")
 @Transactional
 public class DBAccountApiImpl implements IAccountApi{

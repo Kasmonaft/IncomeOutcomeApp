@@ -13,7 +13,7 @@ import model.account.Account;
 import model.transaction.Transaction;
 import services.entity.api.ITransactionApi;
 
-@Controller
+@Controller("transactionApiImpl")
 @Profile("HIBERNATE")
 @Transactional
 public class DBTransactionApiImpl implements ITransactionApi{

@@ -13,7 +13,7 @@ import model.balance.Balance;
 import model.transaction.Transaction;
 import services.entity.api.IBalanceApi;
 
-@Controller
+@Controller("balanceApiImpl")
 @Profile("HIBERNATE")
 @Transactional
 public class DBBalanceApiImpl implements IBalanceApi{
