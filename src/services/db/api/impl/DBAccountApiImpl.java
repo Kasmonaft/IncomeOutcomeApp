@@ -10,7 +10,7 @@ import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Controller;
 
 import model.account.Account;
-import services.db.api.IAccountApi;
+import services.entity.api.IAccountApi;
 
 @Controller
 @Profile("HIBERNATE")

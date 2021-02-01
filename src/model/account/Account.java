@@ -10,8 +10,8 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import dto.AccountDTO;
 import model.balance.Balance;
-import model.transaction.Transaction;
 
 @Entity
 @Table(name = "IOA_ACCOUNT")
@@ -27,7 +27,7 @@ public class Account implements Serializable {
 	private String accountName;
 	
 	@OneToMany(mappedBy = "account")
-	private Set<Balance> balance = new HashSet<>();
+	private Set<Balance> balances = new HashSet<>();
 
 	public String getAccountName() {
 		return accountName;
@@ -37,17 +37,24 @@ public class Account implements Serializable {
 		this.accountName = accountName;
 	}
 
-	public Set<Balance> getBalance() {
-		return balance;
+	public Set<Balance> getBalances() {
+		return balances;
 	}
 
-	public void setBalance(Set<Balance> balance) {
-		this.balance = balance;
+	public void setBalances(Set<Balance> balance) {
+		this.balances = balance;
 	}
 
 	public Long getId() {
 		return id;
 	}
 	
-
+	public static Account mapAccountFromDTO(AccountDTO dto) {
+		
+		return null;
+	}
+	public static AccountDTO mapDTOFromAccount(Account account) {
+		
+		return null;
+	}
 }

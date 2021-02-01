@@ -11,7 +11,7 @@ import org.springframework.stereotype.Controller;
 
 import model.account.Account;
 import model.transaction.Transaction;
-import services.db.api.ITransactionApi;
+import services.entity.api.ITransactionApi;
 
 @Controller
 @Profile("HIBERNATE")
@@ -21,7 +21,7 @@ public class DBTransactionApiImpl implements ITransactionApi{
 	@PersistenceContext
 	EntityManager entityManager;
 
-	public List<Transaction> getAllTransactionsByAccountName(String accountName){
+	public List<Transaction> getAllTransactionsByBalanceName(String accountName){
 		return entityManager.createQuery("from Transaction", Transaction.class).getResultList();
 	}
 	

@@ -1,4 +1,4 @@
-package services.db.api;
+package services.entity.api;
 
 import java.util.List;
 

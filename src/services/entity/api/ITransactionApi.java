@@ -1,4 +1,4 @@
-package services.db.api;
+package services.entity.api;
 
 import java.util.List;
 
@@ -8,7 +8,7 @@ import model.transaction.Transaction;
 
 public interface ITransactionApi {
 
-	public List<Transaction> getAllTransactionsByAccountName(String accountName);
+	public List<Transaction> getAllTransactionsByBalanceName(String accountName);
 	
 	public void pushTransaction(Transaction transaction);
 	

@@ -11,7 +11,7 @@ import org.springframework.stereotype.Controller;
 
 import model.balance.Balance;
 import model.transaction.Transaction;
-import services.db.api.IBalanceApi;
+import services.entity.api.IBalanceApi;
 
 @Controller
 @Profile("HIBERNATE")

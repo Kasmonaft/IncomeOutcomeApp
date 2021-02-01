@@ -1,36 +1,53 @@
 package services.rest.api;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import dto.AccountDTO;
 import model.account.Account;
+import services.entity.api.IAccountApi;
 
 @RestController
 public class AccountApi {
 	
+	@Autowired
+	private IAccountApi api;
+	
 	@GetMapping("getAllAccounts")
-	public List<Account> getAllAccounts(){
-		return null;
+	@ResponseBody
+	public List<AccountDTO> getAllAccounts(){
+		return mapAccountsDTOs(api.getAllAccounts());
 	}
-	
+
 	@PostMapping("pushAccount")
-	public Account pushAccount(Account account) {
-		return null;
+	@ResponseBody
+	public void pushAccount(@RequestBody AccountDTO account) {
+		api.pushAccount(Account.mapAccountFromDTO(account));
 	}
-	
+
 	@PutMapping("updateAccount")
-	public Account updateAccount(Account account) {
-		return null;
+	public AccountDTO updateAccount(@RequestBody AccountDTO account) {
+		return Account.mapDTOFromAccount(api.updateAccount(Account.mapAccountFromDTO(account)));
 	}
 	
 	@DeleteMapping("deleteAccount")
-	public Account deleteAccount(Account account) {
-		return null;
+	public void deleteAccount(@RequestBody AccountDTO account) {
+		api.deleteAccount(Account.mapAccountFromDTO(account));
 	}
+	
+	private List<AccountDTO> mapAccountsDTOs(List<Account> allAccounts) {
+		return allAccounts.stream().map(Account::mapDTOFromAccount).collect(Collectors.toList());
+	}
+	
+	
 
 }

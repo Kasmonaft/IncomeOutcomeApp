@@ -8,6 +8,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class TransactionDTO implements Serializable {
 	
+	private static final long serialVersionUID = 1L;
+	
 	@JsonProperty(required = true)
 	private BigDecimal amount;
 	

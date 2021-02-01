@@ -88,5 +88,6 @@ public abstract class AbstractTransaction implements Serializable {
 	public void setBalance(Balance balance) {
 		this.balance = balance;
 	}
+	
 
 }

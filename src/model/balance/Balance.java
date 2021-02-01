@@ -14,6 +14,7 @@ import javax.persistence.Table;
 
 import org.hibernate.annotations.NaturalId;
 
+import dto.BalanceDTO;
 import model.account.Account;
 import model.transaction.Transaction;
 
@@ -75,5 +76,14 @@ public class Balance implements Serializable {
 
 	public void setBalanceName(String balanceName) {
 		this.balanceName = balanceName;
+	}
+	
+	public static Balance mapBalanceFromDTO(BalanceDTO dto) {
+		
+		return null;
+	}
+	public static BalanceDTO mapDTOFromBalance(Balance balance) {
+		
+		return null;
 	}
 }
