@@ -3,6 +3,7 @@ package model.account;
 import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -50,11 +51,14 @@ public class Account implements Serializable {
 	}
 	
 	public static Account mapAccountFromDTO(AccountDTO dto) {
-		
-		return null;
+		Account account = new Account();
+		account.setAccountName(dto.getName());
+		return account;
 	}
 	public static AccountDTO mapDTOFromAccount(Account account) {
-		
-		return null;
+		AccountDTO dto = new AccountDTO();
+		dto.setName(account.getAccountName());
+		dto.setBalances(account.getBalances().stream().map(Balance::mapDTOFromBalance).collect(Collectors.toList()));
+		return dto;
 	}
 }

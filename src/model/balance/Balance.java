@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.HashSet;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -79,11 +80,19 @@ public class Balance implements Serializable {
 	}
 	
 	public static Balance mapBalanceFromDTO(BalanceDTO dto) {
-		
-		return null;
+		Balance balance = new Balance();
+		balance.setBalanceName(dto.getBalanceName());
+		Account account = new Account();
+		account.setAccountName(dto.getAccountName());
+		balance.setAccount(account);
+		return balance;
 	}
 	public static BalanceDTO mapDTOFromBalance(Balance balance) {
-		
-		return null;
+		BalanceDTO dto = new BalanceDTO();
+		dto.setBalanceName(balance.getBalanceName());
+		dto.setAccountName(balance.getAccount().getAccountName());
+		dto.setAmount(balance.getAmount());
+		dto.setTransactions(balance.getTransactions().stream().map(Transaction::mapDTOFromTransaction).collect(Collectors.toList()));
+		return dto;
 	}
 }

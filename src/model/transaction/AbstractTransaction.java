@@ -73,13 +73,6 @@ public abstract class AbstractTransaction implements Serializable {
 		return id;
 	}
 
-	public String getTransactionType() {
-		return transactionType;
-	}
-
-	public void setTransactionType(String transactionType) {
-		this.transactionType = transactionType;
-	}
 
 	public Balance getBalance() {
 		return balance;
@@ -87,6 +80,14 @@ public abstract class AbstractTransaction implements Serializable {
 
 	public void setBalance(Balance balance) {
 		this.balance = balance;
+	}
+
+	public String getTransactionType() {
+		return transactionType;
+	}
+
+	public void setTransactionType(String transactionType) {
+		this.transactionType = transactionType;
 	}
 	
 

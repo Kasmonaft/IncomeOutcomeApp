@@ -1,39 +1,18 @@
 package model.transaction;
 
-import java.io.Serializable;
-
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
-
-@Table(name = "IOA_TRANSACTION")
-@Entity
-public class TransactionType implements Serializable{
+public enum TransactionType{
 	
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
-
-	@Id
-	private Long id;
+	INCOME("Income"), OUTCOME("Outcome");
 	
-	@Column(name="TYPE_COL", length=255)
-	private String type;
-
-	public String getType() {
-		return type;
+	TransactionType(String string) {
+		value=string;
 	}
 
-	public void setType(String type) {
-		this.type = type;
-	}
+	private String value;
 
-	public Long getId() {
-		return id;
+	public String getValue() {
+		return value;
 	}
-	
 	
 	
 }
