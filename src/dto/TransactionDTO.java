@@ -6,8 +6,6 @@ import java.util.Date;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-import model.transaction.TransactionType;
-
 public class TransactionDTO implements Serializable {
 	
 	private static final long serialVersionUID = 1L;
@@ -19,7 +17,7 @@ public class TransactionDTO implements Serializable {
 	private Date date;
 	
 	@JsonProperty(required = true)
-	private TransactionType transactionType;
+	private String transactionType;
 	
 	@JsonProperty
 	private String comment;
@@ -69,11 +67,11 @@ public class TransactionDTO implements Serializable {
 		this.comment = comment;
 	}
 
-	public TransactionType getTransactionType() {
+	public String getTransactionType() {
 		return transactionType;
 	}
 
-	public void setTransactionType(TransactionType transactionType) {
+	public void setTransactionType(String transactionType) {
 		this.transactionType = transactionType;
 	}
 
