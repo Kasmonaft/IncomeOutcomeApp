@@ -12,6 +12,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 import org.hibernate.annotations.NaturalId;
 
@@ -29,7 +30,7 @@ public class Balance implements Serializable {
 	@Column(name = "ID")
 	private Long id;
 	
-	@Column(name = "AMOUNT")
+	@Transient
 	private BigDecimal amount;
 	
 	@NaturalId
@@ -44,12 +45,13 @@ public class Balance implements Serializable {
 	private Set<Transaction> transactions = new HashSet<>();
 
 	public BigDecimal getAmount() {
-		return amount;
+		BigDecimal result = new BigDecimal(0);
+		for(Transaction transaction : transactions) {
+			result = result.add(transaction.getAmount());
+		}
+		return result;
 	}
 
-	public void setAmount(BigDecimal amount) {
-		this.amount = amount;
-	}
 
 	public Account getAccount() {
 		return account;
